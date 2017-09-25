@@ -257,7 +257,7 @@ require ["vacation", "fcc", "mailbox", "special-use", "imap4flags"];
 
 vacation :days 7
          :fcc :specialuse "\\Sent" :create :flags ["\\Seen"] "INBOX.Sent"
-         :from "hemingway@example.com" "Gone Fishin';
+         :from "hemingway@example.com" "Gone Fishin'";
 ]]></artwork>
           </figure>
 
