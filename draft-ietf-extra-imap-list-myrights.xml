@@ -22,7 +22,7 @@
 <?rfc compact="yes"?>
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
-     docName='draft-ietf-extra-imap-list-myrights-00'>
+     docName='draft-ietf-extra-imap-list-myrights-01'>
   <front>
     <title abbrev="IMAP LIST-MYRIGHTS">IMAP4 Extension for Returning
     MYRIGHTS Information in Extended LIST</title>
@@ -128,7 +128,7 @@
 	</preamble>
         <artwork><![CDATA[
 C: A01 LIST "" % RETURN (MYRIGHTS)
-S: * LIST () "."  "INBOX"
+S: * LIST () "." "INBOX"
 S: * MYRIGHTS "INBOX" lrswipkxtecdan
 S: * LIST () "." "foo"
 S: * MYRIGHTS "foo" lrs
@@ -146,7 +146,7 @@ S: A01 OK List completed.
 	</preamble>
         <artwork><![CDATA[
 C: A02 LIST (SUBSCRIBED RECURSIVEMATCH) "" % RETURN (MYRIGHTS)
-S: * LIST (\Subscribed) "."  "INBOX"
+S: * LIST (\Subscribed) "." "INBOX"
 S: * MYRIGHTS "INBOX" lrswipkxtecdan
 S: * LIST () "." "foo" (CHILDINFO ("SUBSCRIBED"))
 S: A02 OK List completed.
@@ -208,7 +208,7 @@ return-option =/ "MYRIGHTS"
 	  </t>
 	  <t hangText="Person and email address to contact for further
                        information:">
-	    Kenneth Murchison &lt;murch@andrew.cmu.edu&gt;
+	    Kenneth Murchison &lt;murch@fastmail.com&gt;
 	  </t>
 	  <t hangText="Owner/Change controller:">
 	    IESG &lt;iesg@ietf.org&gt;
@@ -247,6 +247,14 @@ return-option =/ "MYRIGHTS"
 
     <section title="Change History (To be removed by RFC Editor before
     publication)">
+      <t>Changes from draft-ietf-extra-imap-list-myrights-00:
+      <list style='symbols'>
+        <t>Corrected contact email address in IANA registration.</t>
+
+        <t>Fixed typos (extra SP) in examples.</t>
+      </list>
+      </t>
+
       <t>Changes from draft-murchison-imap-list-myrights-01:
       <list style='symbols'>
         <t>Renamed document to be a work product of the EXTRA WG.</t>
