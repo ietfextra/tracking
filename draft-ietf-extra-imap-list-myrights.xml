@@ -117,6 +117,13 @@
       given mailbox, it MAY drop the corresponding MYRIGHTS reply.  In
       such a situation, the LIST command would still return a tagged
       OK reply.</t>
+
+      <t>Client authors ought to note that generating the MYRIGHTS
+      responses for a large number of mailboxes may be an expensive
+      operation for the server.  Clients SHOULD use a suitable match
+      pattern and/or selection option to limit the set of mailboxes
+      returned to only those whose rights in which they are
+      interested.</t>
     </section>  <!-- MYRIGHTS -->
 
     <section title='Examples'>
@@ -166,8 +173,15 @@ return-option =/ "MYRIGHTS"
     </section>
 
     <section title='Security Considerations' anchor='security'>
-      <t>This specification does not introduce any additional security
-      concerns beyond those described in <xref target="RFC5258" />.</t>
+      <t>This extension makes it a bit easier for clients to overload
+      the server by requesting MYRIGHTS information for a large number
+      of mailboxes.  However, as already noted in the introduction,
+      existing clients already try to do that by generating a large
+      number of MYRIGHTS commands for each mailbox in which they are
+      interested.  While performing MYRIGHTS information retrieval for
+      big lists of mailboxes, a server implementation needs to make
+      sure that it can still serve other IMAP connections and yield
+      execution to other connections, when necessary.</t>
     </section>
 
     <section title='Privacy Considerations' anchor='privacy'>
@@ -247,6 +261,17 @@ return-option =/ "MYRIGHTS"
 
     <section title="Change History (To be removed by RFC Editor before
     publication)">
+      <t>Changes from draft-ietf-extra-imap-list-myrights-01:
+      <list style='symbols'>
+        <t>Removed 'n' right from example.</t>
+
+        <t>Added advice to client authors regarding expense of
+        calculating MYRIGHTS.</t>
+
+        <t>Replicated Security Considerations section from RFC 5819.</t>
+      </list>
+      </t>
+
       <t>Changes from draft-ietf-extra-imap-list-myrights-00:
       <list style='symbols'>
         <t>Corrected contact email address in IANA registration.</t>
