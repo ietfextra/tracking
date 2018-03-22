@@ -22,7 +22,7 @@
 <?rfc compact="yes"?>
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
-     docName='draft-ietf-extra-imap-list-myrights-01'>
+     docName='draft-ietf-extra-imap-list-myrights-02'>
   <front>
     <title abbrev="IMAP LIST-MYRIGHTS">IMAP4 Extension for Returning
     MYRIGHTS Information in Extended LIST</title>
@@ -129,7 +129,7 @@
         <artwork><![CDATA[
 C: A01 LIST "" % RETURN (MYRIGHTS)
 S: * LIST () "." "INBOX"
-S: * MYRIGHTS "INBOX" lrswipkxtecdan
+S: * MYRIGHTS "INBOX" lrswipkxtecda
 S: * LIST () "." "foo"
 S: * MYRIGHTS "foo" lrs
 S: * LIST (\NonExistent) "." "bar"
@@ -147,7 +147,7 @@ S: A01 OK List completed.
         <artwork><![CDATA[
 C: A02 LIST (SUBSCRIBED RECURSIVEMATCH) "" % RETURN (MYRIGHTS)
 S: * LIST (\Subscribed) "." "INBOX"
-S: * MYRIGHTS "INBOX" lrswipkxtecdan
+S: * MYRIGHTS "INBOX" lrswipkxtecda
 S: * LIST () "." "foo" (CHILDINFO ("SUBSCRIBED"))
 S: A02 OK List completed.
 ]]></artwork>
