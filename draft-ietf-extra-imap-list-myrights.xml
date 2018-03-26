@@ -22,7 +22,7 @@
 <?rfc compact="yes"?>
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
-     docName='draft-ietf-extra-imap-list-myrights-02'>
+     docName='draft-ietf-extra-imap-list-myrights-03'>
   <front>
     <title abbrev="IMAP LIST-MYRIGHTS">IMAP4 Extension for Returning
     MYRIGHTS Information in Extended LIST</title>
@@ -109,14 +109,16 @@
       "MYRIGHTS", which allows the client to request all of the
       desired information in a single command.  For each listable
       mailbox matching the list pattern and selection options, the
-      server MUST return an untagged LIST response followed by an
-      untagged MYRIGHTS response containing the set of rights granted
-      to the logged-in user.</t>
+      server MUST return an untagged LIST response and SHOULD also
+      return an untagged MYRIGHTS response containing the set of
+      rights granted to the logged-in user.  The ordering of the
+      responses is significant only in that the server MUST NOT send a
+      MYRIGHTS response for a given mailbox before it sends the LIST
+      response for that mailbox.</t> 
 
       <t>If the server is unable to look up the set of rights for a
-      given mailbox, it MAY drop the corresponding MYRIGHTS reply.  In
-      such a situation, the LIST command would still return a tagged
-      OK reply.</t>
+      given mailbox, it does not send the MYRIGHTS reply for that
+      mailbox.</t>
 
       <t>Client authors ought to note that generating the MYRIGHTS
       responses for a large number of mailboxes may be an expensive
@@ -192,14 +194,16 @@ return-option =/ "MYRIGHTS"
     <section title='IANA Considerations'>
       <section title='Registration of IMAP capability LIST-MYRIGHTS'>
         <t>This document defines the "LIST-MYRIGHTS" IMAP capability
-        to be added to the registry defined in Section 12 of <xref
-        target='RFC3501' />.</t>
+        to be added to the "IMAP Capabilities" registry: <eref
+        target='https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml#imap-capabilities-1'
+        />.</t>
       </section>
 
       <section title="Registration of LIST-EXTENDED option MYRIGHTS">
 	<t>This section registers the "MYRIGHTS" option to be added to the
-        registry defined in Section 9 of <xref
-        target='RFC5258' />.
+        "LIST-EXTENDED options" registry: <eref
+        target='https://www.iana.org/assignments/imap-list-extended/imap-list-extended.xhtml#imap-list-extended-1'
+        />.
 	<list style='hanging'>
 	  <t hangText="LIST-EXTENDED option name:">
 	    MYRIGHTS
@@ -233,10 +237,13 @@ return-option =/ "MYRIGHTS"
     </section> <!-- IANA -->
 
     <section title='Acknowledgments'>
-      <t>This document is based largely on <xref target='RFC5819'/>.
-      The author would like to thank the authors of that document for
+      <t>This document is based largely on RFC5819.
+      The authors would like to thank the authors of that document for
       providing both inspiration and some borrowed text for this
-      document.</t>
+      document.
+      The authors would also like to thank the following individuals for
+      contributing their ideas and support for writing this
+      specification: Barry Leiba.</t>
 <!--
       <t>The author would also like to thank the following individuals for
       contributing their ideas and support for writing this
@@ -254,13 +261,19 @@ return-option =/ "MYRIGHTS"
       &rfc5234;
       &rfc5258;
     </references>
-
+<!--
     <references title='Informative References'>
       &rfc5819;
     </references>
-
+-->
     <section title="Change History (To be removed by RFC Editor before
     publication)">
+      <t>Changes from draft-ietf-extra-imap-list-myrights-02:
+      <list style='symbols'>
+        <t>WGLC editorial changes from Barry Leiba.</t>
+      </list>
+      </t>
+
       <t>Changes from draft-ietf-extra-imap-list-myrights-01:
       <list style='symbols'>
         <t>Removed 'n' right from example.</t>
