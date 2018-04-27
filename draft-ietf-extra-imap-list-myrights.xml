@@ -22,7 +22,7 @@
 <?rfc compact="yes"?>
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
-     docName='draft-ietf-extra-imap-list-myrights-03'>
+     docName='draft-ietf-extra-imap-list-myrights-04'>
   <front>
     <title abbrev="IMAP LIST-MYRIGHTS">IMAP4 Extension for Returning
     MYRIGHTS Information in Extended LIST</title>
@@ -60,7 +60,7 @@
     <keyword>LIST</keyword>
     <keyword>MYRIGHTS</keyword>
     <abstract>
-      <t>This document defines an extension to the to IMAP LIST
+      <t>This document defines an extension to the IMAP LIST
       command that allows the client to request the set of rights that
       the logged-in user has been granted on mailboxes, along with other
       information typically returned by the LIST command.</t>
@@ -268,6 +268,12 @@ return-option =/ "MYRIGHTS"
 -->
     <section title="Change History (To be removed by RFC Editor before
     publication)">
+      <t>Changes from draft-ietf-extra-imap-list-myrights-03:
+      <list style='symbols'>
+        <t>Fixed a typo in the Abstract.</t>
+      </list>
+      </t>
+
       <t>Changes from draft-ietf-extra-imap-list-myrights-02:
       <list style='symbols'>
         <t>WGLC editorial changes from Barry Leiba.</t>
