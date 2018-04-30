@@ -125,17 +125,11 @@
     <section title='Tagged Argument ":fcc"' anchor='fcc'>
 
       <figure>
+        <preamble>For convenience, the "FCC" syntax element is
+        defined here using <xref target='RFC4234'>ABNF</xref>
+        so that it can be augmented by other extensions.</preamble>
         <artwork><![CDATA[
-Usage:   ":fcc" FCC-OPTIONS <mailbox: string>
-]]></artwork>
-      </figure>
-
-      <figure>
-        <preamble>The positional FCC-OPTIONS argument is defined here
-        in <xref target='RFC4234'>ABNF</xref> syntax so that it can be
-        modified by other extensions.</preamble>
-        <artwork><![CDATA[
-FCC-OPTIONS = ""  ; empty string
+FCC = ":fcc" <mailbox: string>
 ]]></artwork>
       </figure>
 
@@ -207,13 +201,13 @@ FCC-OPTIONS = ""  ; empty string
 
       <figure>
         <artwork><![CDATA[
-Usage:   vacation [":days" number | ":seconds" number]
+Usage:   vacation [FCC]
+                  [":days" number | ":seconds" number]
                   [":subject" string]
                   [":from" string]
                   [":addresses" string-list]
                   [":mime"]
                   [":handle" string]
-                  [":fcc" FCC-OPTIONS <mailbox: string>]
                   <reason: string>
 ]]></artwork>
       </figure>
@@ -224,8 +218,8 @@ Usage:   vacation [":days" number | ":seconds" number]
 require ["vacation", "fcc"];
 
 vacation :days 7
-         :fcc "INBOX.Sent"
-         :from "hemingway@example.com" "Gone Fishin'";
+         :from "hemingway@example.com" "Gone Fishin'"
+         :fcc "INBOX.Sent";
 ]]></artwork>
       </figure>
 
@@ -244,11 +238,11 @@ vacation :days 7
 
       <figure>
         <artwork><![CDATA[
-Usage:   notify [":from" string]
+Usage:   notify [FCC]
+                [":from" string]
                 [":importance" <"1" / "2" / "3">]
                 [":options" string-list]
                 [":message" string]
-                [":fcc" FCC-OPTIONS <mailbox: string>]
                 <method: string>
 ]]></artwork>
       </figure>
@@ -258,8 +252,8 @@ Usage:   notify [":from" string]
         <artwork><![CDATA[
 require ["enotify", "fcc"];
 
-notify :message "You got mail!"
-       :fcc "INBOX.Sent"
+notify :fcc "INBOX.Sent"
+       :message "You got mail!"
        "mailto:ken@example.com";
 ]]></artwork>
       </figure>
@@ -325,11 +319,11 @@ notify :message "You got mail!"
 
           <t>This document extends the definition of the <xref
           target='RFC5232'>":flags"</xref> tagged argument so that it
-          can be used as an FCC-OPTIONS to the ":fcc" argument.</t>
+          can optionally be used with the ":fcc" argument.</t>
 
           <figure>
             <artwork><![CDATA[
-FCC-OPTIONS =/ [":flags" <list-of-flags: string-list>]
+FCC =/ [":flags" <list-of-flags: string-list>]
 ]]></artwork>
           </figure>
 
@@ -344,11 +338,11 @@ FCC-OPTIONS =/ [":flags" <list-of-flags: string-list>]
 
           <t>This document extends the definition of the <xref
           target='RFC5490'>":create"</xref> tagged argument so that it 
-          can be used as an FCC-OPTIONS to the ":fcc" argument.</t>
+          can optionally be used with the ":fcc" argument.</t>
 
           <figure>
             <artwork><![CDATA[
-FCC-OPTIONS =/ [":create"]
+FCC =/ [":create"]
 ]]></artwork>
           </figure>
 
@@ -362,13 +356,13 @@ FCC-OPTIONS =/ [":create"]
         <section title='Special-Use Extension' anchor='specialuse'>
 
           <t>This document extends the definition of the <xref
-          target='I-D.ietf-extra-sieve-special-use'>":specialuse"</xref> tagged argument
-          so that it  can be used as an FCC-OPTIONS to the ":fcc"
-          argument.</t>
+          target='I-D.ietf-extra-sieve-special-use'>":specialuse"</xref>
+          tagged argument so that it can optionally be used with the
+          ":fcc" argument.</t>
 
           <figure>
             <artwork><![CDATA[
-FCC-OPTIONS =/ [":specialuse <special-use-flag: string>"]
+FCC =/ [":specialuse <special-use-flag: string>"]
 ]]></artwork>
           </figure>
 
@@ -394,8 +388,8 @@ FCC-OPTIONS =/ [":specialuse <special-use-flag: string>"]
 require ["vacation", "fcc", "mailbox", "special-use", "imap4flags"];
 
 vacation :days 7
-         :fcc :specialuse "\\Sent" :create :flags ["\\Seen"] "INBOX.Sent"
-         :from "hemingway@example.com" "Gone Fishin'";
+         :from "hemingway@example.com" "Gone Fishin'"
+         :fcc "INBOX.Sent" :specialuse "\\Sent" :create :flags ["\\Seen"];
 ]]></artwork>
           </figure>
 
@@ -469,6 +463,9 @@ vacation :days 7
       <list style='symbols'>
         <t>Added text discussing how to handle generated messages that
         are not in MIME format.</t>
+
+        <t>Adjusted ABNF so that tagged arguments that supplement :fcc
+        no longer appear as positional.</t>
       </list>
       </t>
 
