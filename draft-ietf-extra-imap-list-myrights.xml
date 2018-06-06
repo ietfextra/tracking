@@ -14,6 +14,8 @@
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5258.xml'>
 <!ENTITY rfc5819 PUBLIC ''
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5819.xml'>
+<!ENTITY rfc8174 PUBLIC ''
+'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml'>
 ]>
 
 <?rfc toc="yes"?>
@@ -22,7 +24,7 @@
 <?rfc compact="yes"?>
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
-     docName='draft-ietf-extra-imap-list-myrights-05'>
+     docName='draft-ietf-extra-imap-list-myrights-06'>
   <front>
     <title abbrev="IMAP LIST-MYRIGHTS">IMAP4 Extension for Returning
     MYRIGHTS Information in Extended LIST</title>
@@ -93,7 +95,11 @@
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
       NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
       "MAY", and "OPTIONAL" in this document are to be interpreted as
-      described in <xref target='RFC2119' />.</t>
+      described in
+      <eref target="https://tools.ietf.org/html/bcp14">BCP 14</eref>
+      <xref target='RFC2119' /> <xref target='RFC8174' /> 
+      when, and only when, they appear in all capitals, as shown
+      here.</t>
 
     </section>  <!-- Intro -->
     
@@ -178,7 +184,8 @@ return-option =/ "MYRIGHTS"
     </section>
 
     <section title='Security Considerations' anchor='security'>
-      <t>This extension makes it a bit easier for clients to overload
+      <t>In addition to the security described in <xref target="RFC4314" />,
+      this extension makes it a bit easier for clients to overload
       the server by requesting MYRIGHTS information for a large number
       of mailboxes.  However, as already noted in the introduction,
       existing clients already try to do that by generating a large
@@ -263,6 +270,7 @@ return-option =/ "MYRIGHTS"
       &rfc4314;
       &rfc5234;
       &rfc5258;
+      &rfc8174;
     </references>
 <!--
     <references title='Informative References'>
@@ -271,6 +279,13 @@ return-option =/ "MYRIGHTS"
 -->
     <section title="Change History (To be removed by RFC Editor before
     publication)">
+      <t>Changes from draft-ietf-extra-imap-list-myrights-05:
+      <list style='symbols'>
+        <t>Updated Keywords boilerplate.</t>
+        <t>Referenced security concerns in RFC 4314.</t>
+      </list>
+      </t>
+
       <t>Changes from draft-ietf-extra-imap-list-myrights-04:
       <list style='symbols'>
         <t>Added references for "IMAP" and "return option".</t>
