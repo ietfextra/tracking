@@ -113,9 +113,9 @@
       multiple MYRIGHTS commands wastes bandwidth and can degrade
       performance if the client does not pipeline the requests.</t>
 
-      <t>This document extends the LIST command with a new
+      <t>This document extends the LIST command with a new "MYRIGHTS"
       <xref target='RFC5258'>return option</xref>,
-      "MYRIGHTS", which allows the client to request all of the
+      which allows the client to request all of the
       desired information in a single command.  For each listable
       mailbox matching the list pattern and selection options, the
       server MUST return an untagged LIST response and SHOULD also
@@ -283,6 +283,7 @@ return-option =/ "MYRIGHTS"
       <list style='symbols'>
         <t>Updated Keywords boilerplate.</t>
         <t>Referenced security concerns in RFC 4314.</t>
+        <t>Reworded first sentence in second paragraph of Section 3.</t>
       </list>
       </t>
 
