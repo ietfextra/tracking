@@ -24,7 +24,7 @@
 <?rfc compact="yes"?>
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
-     docName='draft-ietf-extra-imap-list-myrights-06'>
+     docName='draft-ietf-extra-imap-list-myrights-07'>
   <front>
     <title abbrev="IMAP LIST-MYRIGHTS">IMAP4 Extension for Returning
     MYRIGHTS Information in Extended LIST</title>
@@ -184,7 +184,8 @@ return-option =/ "MYRIGHTS"
     </section>
 
     <section title='Security Considerations' anchor='security'>
-      <t>In addition to the security described in <xref target="RFC4314" />,
+      <t>In addition to the security considerations described in <xref
+      target="RFC4314" />,
       this extension makes it a bit easier for clients to overload
       the server by requesting MYRIGHTS information for a large number
       of mailboxes.  However, as already noted in the introduction,
@@ -279,6 +280,12 @@ return-option =/ "MYRIGHTS"
 
     <section title="Change History (To be removed by RFC Editor before
     publication)">
+      <t>Changes from draft-ietf-extra-imap-list-myrights-06:
+      <list style='symbols'>
+        <t>Editorial fix.</t>
+      </list>
+      </t>
+
       <t>Changes from draft-ietf-extra-imap-list-myrights-05:
       <list style='symbols'>
         <t>Updated Keywords boilerplate.</t>
