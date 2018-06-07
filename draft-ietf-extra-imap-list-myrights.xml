@@ -247,7 +247,7 @@ return-option =/ "MYRIGHTS"
     </section> <!-- IANA -->
 
     <section title='Acknowledgments'>
-      <t>This document is based largely on RFC5819.
+      <t>This document is based largely on <xref target="RFC5819" />.
       The authors would like to thank the authors of that document for
       providing both inspiration and some borrowed text for this
       document.
@@ -272,11 +272,11 @@ return-option =/ "MYRIGHTS"
       &rfc5258;
       &rfc8174;
     </references>
-<!--
+
     <references title='Informative References'>
       &rfc5819;
     </references>
--->
+
     <section title="Change History (To be removed by RFC Editor before
     publication)">
       <t>Changes from draft-ietf-extra-imap-list-myrights-05:
@@ -284,6 +284,7 @@ return-option =/ "MYRIGHTS"
         <t>Updated Keywords boilerplate.</t>
         <t>Referenced security concerns in RFC 4314.</t>
         <t>Reworded first sentence in second paragraph of Section 3.</t>
+        <t>Added informative reference to RFC5819.</t>
       </list>
       </t>
 
