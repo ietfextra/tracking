@@ -1,0 +1,15 @@
+EXTRA: IETF102 Montreal / 2018-07-19 11:00 - 12:00
+
+Intro and Note Well: 5m
+Proposed new documents: 25m
+  * draft-brandt-imap-replace 5m
+  * draft-slusarz-imap-fetch-snippet 5m
+  * draft-yu-imap-client-id 15m
+Existing documents: 20m
+  * sieve-fcc 3m
+  * sieve-specialuse 3m
+  * savedate 3m
+  * imap4rev2 10m
+AOB: 10m
+  * spam handling (informational/advisory doc?)
+  * MODSEQROOT and cross folder modseqs spec?
