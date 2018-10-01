@@ -10,14 +10,14 @@
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2046.xml'>
 <!ENTITY rfc2047 PUBLIC ''
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2047.xml'>
-<!ENTITY rfc4234 PUBLIC ''
-'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4234.xml'>
 <!ENTITY rfc5228 PUBLIC ''
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5228.xml'>
 <!ENTITY rfc5230 PUBLIC ''
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5230.xml'>
 <!ENTITY rfc5232 PUBLIC ''
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5232.xml'>
+<!ENTITY rfc5234 PUBLIC ''
+'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml'>
 <!ENTITY rfc5321 PUBLIC ''
 'http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5321.xml'>
 <!ENTITY rfc5322 PUBLIC ''
@@ -49,14 +49,14 @@
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
      updates="5230, 5435"
-     docName='draft-ietf-extra-sieve-fcc-05'>
+     docName='draft-ietf-extra-sieve-fcc-06'>
   <front>
     <title abbrev="Sieve Fcc">Sieve Extension: File Carbon Copy (Fcc)</title>
     <author initials="K." surname="Murchison" fullname="Kenneth Murchison">
       <organization abbrev="FastMail">FastMail US LLC</organization>
       <address>
         <postal>
-          <street>1315 Walnut Street - Suite 320</street>
+          <street>1429 Walnut Street</street>
           <city>Philadelphia</city> <region>PA</region>
           <code>19107</code> <country>USA</country>
         </postal>
@@ -90,6 +90,10 @@
       on behalf of the user.  This document defines an extension to
       such commands to allow a copy of any generated message to be
       filed into a target mailbox.</t>
+
+      <t>This document updates RFC5230 and RFC5435 by adding a new
+      tagged argument to the "vacation" and "enotify" actions
+      respectively.</t>
     </abstract>
   </front>
 
@@ -136,7 +140,7 @@
 
       <figure>
         <preamble>For convenience, the "FCC" syntax element is
-        defined here using <xref target='RFC4234'>ABNF</xref>
+        defined here using <xref target='RFC5234'>ABNF</xref>
         so that it can be augmented by other extensions.</preamble>
         <artwork><![CDATA[
 FCC = ":fcc" <mailbox: string>
@@ -455,7 +459,8 @@ require ["vacation", "fcc", "mailbox", "special-use", "imap4flags"];
 
 vacation :days 7
          :from "hemingway@example.com" "Gone Fishin'"
-         :fcc "INBOX.Sent" :specialuse "\\Sent" :create :flags ["\\Seen"];
+         :fcc "INBOX.Sent" :specialuse "\\Sent" :create
+         :flags ["\\Seen"];
 ]]></artwork>
           </figure>
 
@@ -582,10 +587,10 @@ vacation :days 7
       &rfc2045;
       &rfc2046;
       &rfc2047;
-      &rfc4234;
       &rfc5228;
       &rfc5230;
       &rfc5232;
+      &rfc5234;
       &rfc5322;
       &rfc5435;
       &rfc5490;
@@ -594,8 +599,6 @@ vacation :days 7
     </references>
 
     <references title='Informative References'>
-      &rfc5321;
-      &rfc5429;
       &rfc5436;
       &rfc5437;
       &rfc6131;
@@ -604,9 +607,9 @@ vacation :days 7
 
     <section title="Change History (To be removed by RFC Editor before
                     publication)">
-      <t>Changes since draft-ietf-extra-sieve-fcc-03:
+      <t>Changes since draft-ietf-extra-sieve-fcc-05:
       <list style='symbols'>
-        <t>Fixed typo in ABNF.</t>
+        <t>Editorial changes from Jiankang Yao.</t>
       </list>
       </t>
 
@@ -614,6 +617,12 @@ vacation :days 7
       <list style='symbols'>
         <t>Editorial changes from Ned Freed.</t>
         <t>Added information on Oracle implementation.</t>
+      </list>
+      </t>
+
+      <t>Changes since draft-ietf-extra-sieve-fcc-03:
+      <list style='symbols'>
+        <t>Fixed typo in ABNF.</t>
       </list>
       </t>
 
