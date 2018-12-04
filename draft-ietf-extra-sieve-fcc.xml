@@ -51,7 +51,7 @@
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
      updates="5230, 5435"
-     docName='draft-ietf-extra-sieve-fcc-07'>
+     docName='draft-ietf-extra-sieve-fcc-08'>
   <front>
     <title abbrev="Sieve Fcc">Sieve Extension: File Carbon Copy (Fcc)</title>
     <author initials="K." surname="Murchison" fullname="Kenneth Murchison">
@@ -247,9 +247,15 @@ Usage: :fcc <mailbox: string> [:specialuse <special-use-flag: string>]
         defined here using <xref target='RFC5234'>ABNF</xref>
         so that it can be augmented by other extensions.</t>
 
+        <t>Note that the following is the grammar of "FCC" after it has
+        been lexically interpreted.  No whitespace or comments appear
+        below.</t>
+
           <figure>
           <artwork><![CDATA[
 FCC         = ":fcc" string *FCC-OPTS
+                ; per Section 2.6.2 of RFC5228,
+                ; the tagged arguments in FCC may appear in any order
 
 FCC-OPTS    = CREATE / IMAP-FLAGS / SPECIAL-USE
                 ; each option MUST NOT appear more than once
@@ -343,8 +349,9 @@ require ["vacation", "fcc", "mailbox", "special-use", "imap4flags"];
 
 vacation :days 7
          :from "hemingway@example.com" "Gone Fishin'"
-         :fcc "INBOX.Sent" :flags ["\\Seen"]
-                           :specialuse "\\Sent" :create;
+         :specialuse "\\Sent" :create
+         :fcc "INBOX.Sent" :flags ["\\Seen"];
+                           
 ]]></artwork>
       </figure>
 
@@ -631,6 +638,14 @@ vacation :days 7
 
     <section title="Change History (To be removed by RFC Editor before
                     publication)">
+      <t>Changes since draft-ietf-extra-sieve-fcc-07:
+      <list style='symbols'>
+        <t>Added comments regarding FCC ABNF per Alexey Melnikov.</t>
+        <t>Reordered arguments in the "vacation" example to show ":fcc"
+        appearing amongst FCC-OPTS.</t>
+      </list>
+      </t>
+
       <t>Changes since draft-ietf-extra-sieve-fcc-06:
       <list style='symbols'>
         <t>Reorganized sections.</t>
