@@ -51,7 +51,7 @@
 <?rfc strict="yes"?>
 <rfc category="std" ipr='trust200902'
      updates="5230, 5435"
-     docName='draft-ietf-extra-sieve-fcc-08'>
+     docName='draft-ietf-extra-sieve-fcc-09'>
   <front>
     <title abbrev="Sieve Fcc">Sieve Extension: File Carbon Copy (Fcc)</title>
     <author initials="K." surname="Murchison" fullname="Kenneth Murchison">
@@ -116,7 +116,7 @@
       "fcc".</t>
 
       <t>Each action that generates additional messages will need to
-      specify how it interfacts with :fcc. This document
+      specify how it interacts with :fcc. This document
       specifies the interaction of :fcc with the
       <xref target='RFC5230'>Vacation</xref> and
       <xref target='RFC5435'>Notify</xref> extensions.</t> 
@@ -638,6 +638,12 @@ vacation :days 7
 
     <section title="Change History (To be removed by RFC Editor before
                     publication)">
+      <t>Changes since draft-ietf-extra-sieve-fcc-08:
+      <list style='symbols'>
+        <t>Editorial changes from Gen-ART review.</t>
+      </list>
+      </t>
+
       <t>Changes since draft-ietf-extra-sieve-fcc-07:
       <list style='symbols'>
         <t>Added comments regarding FCC ABNF per Alexey Melnikov.</t>
