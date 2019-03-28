@@ -1,0 +1,38 @@
+The IETF maintains several key email related protocols that relate to
+message delivery to mailstores and mailstore access.  These include
+the following:
+
+ IMAP (RFC3501)
+ SIEVE (RFC5228)
+ ManageSieve (RFC5804)
+
+From time to time, there are bursts of work to do and the motivation and
+critical mass to do it.  When such bursts coincide, it's important to
+give them a home.  This working group provides such a venue.
+
+The WG will work on updates, extensions, and revisions to the above
+email protocols. Upon formation, the working group will consider any
+existing Internet Drafts that could be appropriate for its processing.
+While an interest poll for a new related idea is fine, the WG should
+avoid detailed discussion of work items lacking an Internet-Draft.
+
+The working group will start with processing the backlog of IMAP/Sieve
+extensions. Once this is done it will continue processing submitted
+IMAP/Sieve extensions, as well as work on a revision of IMAP (RFC 3501).
+Work on updating this RFC will include appropriate corrections,
+clarifications, or amplifications to reflect existing practice or
+to address problems that have been identified through experience with
+IMAP as currently specified.  Also eligible for consideration is
+the incorporation of accumulated errata or consolidation with newer documents
+that have updated and/or extended the base specification. However,
+any new functionality is expected to be pursued via
+extensions rather than changes to the base protocol wherever possible.
+
+If there is interest in revising SIEVE (RFC5228) and ManageSieve
+(RFC5804), the WG will recharter.
+
+Expressly excluded from this charter is work on any protocol for which a
+dedicated working group already exists, such as DMARC, DCRUP or JMAP, as well
+as any work on POP3, SMTP/LMTP and email format/MIME. However, each working group
+should endeavor to remain aware of the activities of the other and collaborate
+as needed.
